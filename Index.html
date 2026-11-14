@@ -4,1039 +4,642 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Bertahanlah hingga jam 6 pagi di ruang keamanan 3D. Tutup pintu, pantau kamera, dan jangan biarkan bebek masuk.">
+<meta name="description" content="Klasik survival horror. Bertahan hingga 6 AM dari serangan animatronic bebek. Kelola daya, tutup pintu, nyalakan lampu.">
 <meta name="author" content="Autonomous Product Studio">
-<meta name="theme-color" content="#1a1d24">
+<meta name="theme-color" content="#050505">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Shift Malam 3D">
+<meta name="apple-mobile-web-app-title" content="Shift Bebek">
 <meta name="mobile-web-app-capable" content="yes">
 <meta property="og:type" content="game">
-<meta property="og:title" content="Shift Malam: Kandang Bebek 3D">
-<meta property="og:description" content="Bertahanlah hingga jam 6 pagi. Kelola daya, tutup pintu, pantau kamera dalam 3D.">
+<meta property="og:title" content="Shift Malam: Serangan Bebek">
+<meta property="og:description" content="Klasik survival horror. Bertahan hingga 6 AM. Jangan biarkan bebek masuk.">
 <meta property="og:locale" content="id_ID">
-<meta property="og:site_name" content="Shift Malam 3D">
+<meta property="og:site_name" content="Shift Bebek">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Shift Malam: Kandang Bebek 3D">
-<meta name="twitter:description" content="Bertahanlah hingga jam 6 pagi. Kelola daya, tutup pintu, pantau kamera dalam 3D.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a1d24'/%3E%3Cpath d='M30 40 Q50 20 70 40 L70 70 Q50 80 30 70 Z' fill='%23d4a017'/%3E%3Ccircle cx='40' cy='45' r='3' fill='%231a1d24'/%3E%3Ccircle cx='60' cy='45' r='3' fill='%231a1d24'/%3E%3Cpath d='M45 55 L55 55 L50 65 Z' fill='%23c25e00'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a1d24'/%3E%3Cpath d='M30 40 Q50 20 70 40 L70 70 Q50 80 30 70 Z' fill='%23d4a017'/%3E%3Ccircle cx='40' cy='45' r='3' fill='%231a1d24'/%3E%3Ccircle cx='60' cy='45' r='3' fill='%231a1d24'/%3E%3Cpath d='M45 55 L55 55 L50 65 Z' fill='%23c25e00'/%3E%3C/svg%3E">
-<title>Shift Malam: Kandang Bebek 3D</title>
+<meta name="twitter:title" content="Shift Malam: Serangan Bebek">
+<meta name="twitter:description" content="Klasik survival horror. Bertahan hingga 6 AM. Jangan biarkan bebek masuk.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Cpath d='M30 40 Q50 10 70 40 L70 70 Q50 90 30 70 Z' fill='%23facc15'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23000'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23000'/%3E%3Cpath d='M45 55 L55 55 L50 65 Z' fill='%23ea580c'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Cpath d='M30 40 Q50 10 70 40 L70 70 Q50 90 30 70 Z' fill='%23facc15'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23000'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23000'/%3E%3Cpath d='M45 55 L55 55 L50 65 Z' fill='%23ea580c'/%3E%3C/svg%3E">
+<title>Shift Malam: Serangan Bebek</title>
 <style>
 :root {
-  --bg: oklch(18% 0.02 240);
-  --surface: oklch(25% 0.03 240);
-  --accent: oklch(75% 0.15 90);
-  --text: oklch(85% 0.01 260);
-  --text-dim: oklch(60% 0.02 260);
-  --danger: oklch(55% 0.2 25);
-  --spacing-xs: 4px; --spacing-sm: 8px; --spacing-md: 16px; --spacing-lg: 24px; --spacing-xl: 32px;
-  --font-ui: system-ui, -apple-system, sans-serif;
+  --bg: #050505;
+  --ui-green: #4ade80;
+  --ui-red: #ef4444;
+  --ui-yellow: #facc15;
   --font-mono: 'Courier New', Courier, monospace;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { -webkit-text-size-adjust: 100%; height: 100%; }
-body {
-  font-family: var(--font-ui);
-  background: var(--bg);
-  color: var(--text);
-  height: 100dvh;
-  width: 100vw;
-  overflow: hidden;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-  position: fixed;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
+html, body {
+  width: 100%; height: 100dvh; overflow: hidden; background: var(--bg); color: white;
+  font-family: var(--font-mono); touch-action: none; -webkit-touch-callout: none;
 }
-#game-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+#game-stage {
+  position: relative; width: 100%; height: 100%;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000000 90%);
+  perspective: 1000px; overflow: hidden;
 }
-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  image-rendering: pixelated;
-  background: #000;
+/* OFFICE VIEW */
+.office-wall {
+  position: absolute; top: 0; bottom: 0; width: 20%; background: #111;
+  border-right: 2px solid #222; z-index: 1;
 }
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 17, 21, 0.95);
-  backdrop-filter: blur(8px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: opacity 0.3s ease;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+.office-wall.right { right: 0; left: auto; border-left: 2px solid #222; border-right: none; }
+.door-frame {
+  position: absolute; top: 10%; bottom: 0; width: 15%; background: #0a0a0a;
+  border: 4px solid #333; box-shadow: inset 0 0 20px #000;
 }
-.overlay.hidden { opacity: 0; pointer-events: none; }
-.grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 5;
-  opacity: 0.08;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+.door-frame.left { left: 20%; }
+.door-frame.right { right: 20%; }
+.door-panel {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(45deg, #222, #222 10px, #1a1a1a 10px, #1a1a1a 20px);
+  transform: translateY(-100%); transition: transform 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
 }
-.vignette {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 6;
-  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.9) 100%);
+.door-panel.closed { transform: translateY(0); }
+.darkness-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: black; opacity: 0.95; transition: opacity 0.1s; pointer-events: none;
 }
-h1 {
-  font-family: var(--font-mono);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  letter-spacing: -0.03em;
-  color: var(--accent);
-  margin-bottom: var(--spacing-xl);
-  text-align: center;
-  text-shadow: 0 0 10px rgba(212, 160, 23, 0.3);
+.light-active { opacity: 0 !important; }
+/* CONTROLS */
+.control-panel {
+  position: absolute; top: 40%; width: 60px; height: 120px;
+  background: #222; border: 2px solid #444; display: flex; flex-direction: column;
+  justify-content: space-around; align-items: center; padding: 5px; z-index: 10;
 }
-h2 {
-  font-family: var(--font-mono);
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  margin-bottom: var(--spacing-lg);
-  color: var(--text);
+.control-panel.left { left: calc(20% + 15% + 10px); }
+.control-panel.right { right: calc(20% + 15% + 10px); }
+.btn-control {
+  width: 40px; height: 40px; border-radius: 50%; border: 2px solid #555;
+  background: #333; color: #fff; font-weight: bold; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 10px;
+  box-shadow: 0 4px 0 #111; active: translate-y(2px);
 }
-.btn {
-  background: transparent;
-  border: 1px solid var(--text-dim);
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  padding: var(--spacing-md) var(--spacing-xl);
-  margin: var(--spacing-sm);
-  cursor: pointer;
-  min-width: 200px;
-  min-height: 48px;
-  transition: all 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.btn-control.active { background: var(--ui-green); color: #000; box-shadow: 0 0 10px var(--ui-green); }
+.btn-light.active { background: #fff; box-shadow: 0 0 15px #fff; }
+/* DESK & FAN */
+.desk {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 60%; height: 25%; background: #1a1a1a; border-top: 4px solid #333;
+  z-index: 5; display: flex; justify-content: center; align-items: flex-end;
 }
-.btn:hover, .btn:focus-visible {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--bg);
-  outline: 2px solid var(--text);
-  outline-offset: 2px;
+.fan {
+  width: 80px; height: 80px; border: 4px solid #444; border-radius: 50%;
+  position: relative; margin-bottom: 20px; animation: spin 0.5s linear infinite;
 }
-.btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  border-color: var(--text-dim);
+.fan-blade {
+  position: absolute; top: 50%; left: 50%; width: 70%; height: 10px;
+  background: #333; transform-origin: left;
 }
-.btn:active { transform: scale(0.98); }
-.hud {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: var(--spacing-md);
-  padding-top: calc(var(--spacing-md) + env(safe-area-inset-top));
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  z-index: 8;
-  pointer-events: none;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+.fan-blade:nth-child(1) { transform: rotate(0deg); }
+.fan-blade:nth-child(2) { transform: rotate(120deg); }
+.fan-blade:nth-child(3) { transform: rotate(240deg); }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+/* HUD */
+.hud-top {
+  position: absolute; top: 20px; left: 20px; z-index: 20;
+  text-shadow: 0 0 5px var(--ui-green);
 }
-.hud-item { pointer-events: auto; }
-.hud-text { color: var(--text-dim); margin-bottom: var(--spacing-xs); }
-.hud-value { color: var(--accent); font-weight: bold; }
-.controls-panel {
-  position: absolute;
-  bottom: var(--spacing-lg);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 var(--spacing-lg);
-  padding-bottom: env(safe-area-inset-bottom);
-  z-index: 9;
-  pointer-events: none;
+.hud-time { font-size: 2rem; font-weight: bold; }
+.hud-night { font-size: 1rem; color: #aaa; }
+.hud-power {
+  position: absolute; bottom: 20px; left: 20px; z-index: 20;
+  font-size: 1.2rem; color: var(--ui-green);
 }
-.control-btn {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(26, 29, 36, 0.8);
-  border: 2px solid var(--text-dim);
-  color: var(--text-dim);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  pointer-events: auto;
-  transition: all 0.2s;
-  cursor: pointer;
+.usage-bar {
+  display: inline-block; width: 10px; height: 20px; background: #333; margin-right: 2px;
+  border: 1px solid #555;
 }
-.control-btn.active {
-  border-color: var(--danger);
-  color: var(--danger);
-  background: rgba(217, 119, 87, 0.1);
-  box-shadow: 0 0 15px rgba(217, 119, 87, 0.2);
-}
-.control-btn.camera-btn {
-  width: 80px;
-  height: 40px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-family: var(--font-mono);
-}
-.camera-overlay {
-  position: absolute;
-  inset: 0;
-  background: #000;
-  z-index: 7;
-  display: none;
-  flex-direction: column;
-}
-.camera-overlay.active { display: flex; }
-.camera-view {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-.camera-map {
-  position: absolute;
-  bottom: var(--spacing-lg);
-  right: var(--spacing-lg);
-  width: 150px;
-  height: 150px;
-  background: rgba(0,0,0,0.8);
-  border: 1px solid var(--accent);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 2px;
-  padding: 4px;
-}
-.cam-btn {
-  background: rgba(255,255,255,0.1);
-  border: none;
-  color: var(--text-dim);
-  font-size: 0.7rem;
-  cursor: pointer;
-  font-family: var(--font-mono);
-}
-.cam-btn.active {
-  background: var(--accent);
-  color: var(--bg);
-}
-#rotate-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  z-index: 100;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: var(--spacing-xl);
-}
-@media (orientation: portrait) {
-  #rotate-overlay { display: flex; }
-}
-.rotate-icon {
-  width: 64px;
-  height: 64px;
-  margin-bottom: var(--spacing-lg);
-  animation: rotateHint 2s infinite ease-in-out;
-}
-@keyframes rotateHint {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(90deg); }
-}
-.setting-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 300px;
-  margin: var(--spacing-sm) 0;
-  font-family: var(--font-mono);
-}
-.toggle {
-  width: 48px;
-  height: 24px;
-  background: var(--text-dim);
-  border-radius: 12px;
-  position: relative;
-  cursor: pointer;
+.usage-bar.active { background: var(--ui-green); box-shadow: 0 0 5px var(--ui-green); }
+/* CAMERA SYSTEM */
+.cam-toggle {
+  position: absolute; bottom: 20px; right: 20px; width: 300px; height: 40px;
+  background: rgba(255,255,255,0.1); border: 1px solid #555; z-index: 30;
+  display: flex; align-items: center; padding-left: 10px; cursor: pointer;
   transition: background 0.2s;
 }
-.toggle.active { background: var(--accent); }
-.toggle::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: var(--bg);
-  border-radius: 50%;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.2s;
+.cam-toggle:hover { background: rgba(255,255,255,0.2); }
+.cam-map {
+  position: absolute; bottom: 80px; right: 20px; width: 250px; height: 200px;
+  background: rgba(0,0,0,0.9); border: 2px solid #555; z-index: 25;
+  display: none; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 10px;
 }
-.toggle.active::after { transform: translateX(24px); }
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+.cam-map.active { display: grid; }
+.cam-btn {
+  background: #222; border: 1px solid #444; color: #888; font-size: 0.7rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  .grain { display: none; }
+.cam-btn.active { background: var(--ui-green); color: #000; }
+.camera-feed {
+  position: absolute; inset: 0; background: #000; z-index: 15; display: none;
+  flex-direction: column; align-items: center; justify-content: center;
 }
+.camera-feed.active { display: flex; }
+.static-noise {
+  position: absolute; inset: 0; opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: noiseAnim 0.2s infinite;
+}
+@keyframes noiseAnim { 0% { transform: translate(0,0); } 100% { transform: translate(-5px,-5px); } }
+/* THE DUCK */
+.duck-entity {
+  position: absolute; width: 200px; height: 250px; z-index: 4;
+  transition: opacity 0.2s; opacity: 0;
+}
+.duck-body {
+  width: 100%; height: 100%; background: #facc15;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
+  position: relative; box-shadow: inset -10px -10px 30px rgba(0,0,0,0.5);
+}
+.duck-eye {
+  position: absolute; top: 20%; width: 30px; height: 30px; background: white; border-radius: 50%;
+  border: 2px solid #000;
+}
+.duck-eye.left { left: 25%; } .duck-eye.right { right: 25%; }
+.duck-pupil {
+  position: absolute; top: 30%; left: 30%; width: 10px; height: 10px; background: black; border-radius: 50%;
+}
+.duck-beak {
+  position: absolute; top: 40%; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 40px; background: #ea580c;
+  clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
+}
+/* JUMPSCARE */
+.jumpscare-overlay {
+  position: fixed; inset: 0; background: black; z-index: 100; display: none;
+  align-items: center; justify-content: center;
+}
+.jumpscare-duck {
+  width: 80vw; height: 80vh; animation: shake 0.1s infinite;
+}
+@keyframes shake { 0% { transform: translate(2px, 2px) rotate(0deg); } 25% { transform: translate(-2px, -2px) rotate(-2deg); } 50% { transform: translate(2px, -2px) rotate(2deg); } 75% { transform: translate(-2px, 2px) rotate(0deg); } 100% { transform: translate(2px, 2px) rotate(0deg); } }
+/* MENUS */
+.menu-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 50;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.hidden { display: none !important; }
+h1 { font-size: 3rem; color: var(--ui-green); text-shadow: 0 0 10px var(--ui-green); margin-bottom: 2rem; text-align: center; }
+.btn-menu {
+  background: transparent; border: 2px solid var(--ui-green); color: var(--ui-green);
+  padding: 15px 40px; font-size: 1.5rem; font-family: var(--font-mono); cursor: pointer;
+  margin: 10px; transition: all 0.2s;
+}
+.btn-menu:hover { background: var(--ui-green); color: black; box-shadow: 0 0 20px var(--ui-green); }
+.rotate-warning {
+  position: fixed; inset: 0; background: #000; z-index: 200; display: none;
+  flex-direction: column; align-items: center; justify-content: center; color: white;
+}
+@media (orientation: portrait) { .rotate-warning { display: flex; } }
 </style>
 </head>
 <body>
-<div id="game-container">
-  <canvas id="game-canvas" aria-label="Layar permainan 3D"></canvas>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
+
+<div class="rotate-warning">
+  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+  <h2 style="margin-top: 20px;">PUTAR PERANGKAT</h2>
+</div>
+
+<div id="game-stage">
+  <!-- OFFICE -->
+  <div class="office-wall left"></div>
+  <div class="office-wall right"></div>
   
-  <div id="hud" class="hud hidden">
-    <div class="hud-item">
-      <div class="hud-text">WAKTU</div>
-      <div class="hud-value" id="hud-time">12 AM</div>
-    </div>
-    <div class="hud-item" style="text-align: right;">
-      <div class="hud-text">DAYA</div>
-      <div class="hud-value" id="hud-power">100%</div>
+  <div class="door-frame left">
+    <div class="door-panel" id="door-left"></div>
+    <div class="darkness-overlay" id="light-left-overlay"></div>
+    <div class="duck-entity" id="duck-left">
+      <div class="duck-body"><div class="duck-eye left"><div class="duck-pupil"></div></div><div class="duck-eye right"><div class="duck-pupil"></div></div><div class="duck-beak"></div></div>
     </div>
   </div>
-
-  <div class="controls-panel hidden" id="controls-panel">
-    <div class="control-btn" id="btn-door-left" role="button" tabindex="0" aria-label="Pintu Kiri">L</div>
-    <div class="control-btn camera-btn" id="btn-camera" role="button" tabindex="0" aria-label="Buka Kamera">CAMERA</div>
-    <div class="control-btn" id="btn-door-right" role="button" tabindex="0" aria-label="Pintu Kanan">R</div>
-  </div>
-
-  <div class="camera-overlay" id="camera-overlay">
-    <div class="camera-view" id="camera-view">
-      <!-- Canvas will be cloned here for camera view -->
-    </div>
-    <div class="camera-map">
-      <button class="cam-btn" data-cam="0">CAM 1</button>
-      <button class="cam-btn" data-cam="1">CAM 2</button>
-      <button class="cam-btn" data-cam="2">CAM 3</button>
-      <button class="cam-btn" data-cam="3">CAM 4</button>
-      <button class="cam-btn active" data-cam="4">OFFICE</button>
-      <button class="cam-btn" data-cam="5">CAM 6</button>
-    </div>
-    <button class="btn" id="btn-close-camera" style="position: absolute; top: 16px; right: 16px; min-width: auto; padding: 8px 16px;">TUTUP</button>
-  </div>
-
-  <div id="main-menu" class="overlay">
-    <h1>SHIFT MALAM<br><span style="font-size: 0.6em; color: var(--text-dim);">KANDANG BEBEK 3D</span></h1>
-    <button class="btn" id="btn-start">Mulai Shift</button>
-    <button class="btn" id="btn-settings">Pengaturan</button>
-    <div style="margin-top: 32px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); text-align: center; max-width: 400px;">
-      Jaga pintu tetap tertutup. Pantau pergerakan mereka. Bertahanlah hingga jam 6 pagi.
+  
+  <div class="door-frame right">
+    <div class="door-panel" id="door-right"></div>
+    <div class="darkness-overlay" id="light-right-overlay"></div>
+    <div class="duck-entity" id="duck-right">
+      <div class="duck-body"><div class="duck-eye left"><div class="duck-pupil"></div></div><div class="duck-eye right"><div class="duck-pupil"></div></div><div class="duck-beak"></div></div>
     </div>
   </div>
 
-  <div id="settings-menu" class="overlay hidden">
-    <h2>Pengaturan</h2>
-    <div class="setting-row">
-      <span>Audio</span>
-      <div class="toggle active" id="toggle-audio" role="button" tabindex="0" aria-pressed="true"></div>
+  <div class="control-panel left">
+    <button class="btn-control btn-door" id="btn-door-left">DOOR</button>
+    <button class="btn-control btn-light" id="btn-light-left">LIGHT</button>
+  </div>
+  
+  <div class="control-panel right">
+    <button class="btn-control btn-door" id="btn-door-right">DOOR</button>
+    <button class="btn-control btn-light" id="btn-light-right">LIGHT</button>
+  </div>
+
+  <div class="desk">
+    <div class="fan">
+      <div class="fan-blade"></div><div class="fan-blade"></div><div class="fan-blade"></div>
     </div>
-    <div class="setting-row">
-      <span>Getar (Haptic)</span>
-      <div class="toggle active" id="toggle-haptic" role="button" tabindex="0" aria-pressed="true"></div>
+  </div>
+
+  <!-- HUD -->
+  <div class="hud-top">
+    <div class="hud-time" id="time-display">12 AM</div>
+    <div class="hud-night">Night 1</div>
+  </div>
+  
+  <div class="hud-power">
+    Power: <span id="power-display">100%</span>
+    <div style="margin-top: 5px;" id="usage-indicator">
+      Usage: 
+      <span class="usage-bar active"></span>
+      <span class="usage-bar" id="bar-2"></span>
+      <span class="usage-bar" id="bar-3"></span>
+      <span class="usage-bar" id="bar-4"></span>
+      <span class="usage-bar" id="bar-5"></span>
     </div>
-    <button class="btn" id="btn-reset-data" style="border-color: var(--danger); color: var(--danger); margin-top: 24px;">Hapus Data Tersimpan</button>
-    <button class="btn" id="btn-back-settings">Kembali</button>
   </div>
 
-  <div id="pause-menu" class="overlay hidden">
-    <h2>Jeda</h2>
-    <button class="btn" id="btn-resume">Lanjut</button>
-    <button class="btn" id="btn-restart">Ulang Shift</button>
-    <button class="btn" id="btn-quit">Menu Utama</button>
+  <!-- CAMERA SYSTEM -->
+  <div class="cam-toggle" id="cam-toggle">
+    <span style="color: var(--ui-green); font-weight: bold;">[ SPACE ] OPEN MONITOR</span>
+  </div>
+  
+  <div class="cam-map" id="cam-map">
+    <button class="cam-btn" data-cam="1A">CAM 1A</button>
+    <button class="cam-btn" data-cam="1B">CAM 1B</button>
+    <button class="cam-btn" data-cam="1C">CAM 1C</button>
+    <button class="cam-btn" data-cam="2A">CAM 2A</button>
+    <button class="cam-btn" data-cam="2B">CAM 2B</button>
+    <button class="cam-btn" data-cam="3">CAM 3</button>
+    <button class="cam-btn" data-cam="4A">CAM 4A</button>
+    <button class="cam-btn" data-cam="4B">CAM 4B</button>
+    <button class="cam-btn" data-cam="5">CAM 5</button>
   </div>
 
-  <div id="game-over" class="overlay hidden">
-    <h2 style="color: var(--danger)">KAMU DITANGKAP</h2>
-    <p style="font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 24px; text-align: center; max-width: 400px;">
-      Salah satu bebek berhasil masuk. Shift malam berakhir lebih cepat dari rencana.
-    </p>
-    <button class="btn" id="btn-retry">Coba Lagi</button>
-    <button class="btn" id="btn-quit-over">Menu Utama</button>
-  </div>
-
-  <div id="win-screen" class="overlay hidden">
-    <h2 style="color: var(--accent)">SHIFT SELESAI</h2>
-    <p style="font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 24px; text-align: center; max-width: 400px;">
-      Jam 6 pagi telah tiba. Kamu selamat. Gaji akan ditransfer besok.
-    </p>
-    <button class="btn" id="btn-quit-win">Menu Utama</button>
-  </div>
-
-  <div id="onboarding" class="overlay hidden">
-    <h2>Panduan Keamanan</h2>
-    <div style="font-family: var(--font-mono); color: var(--text-dim); text-align: left; max-width: 500px; line-height: 1.6; margin-bottom: 24px;">
-      <p>• <strong>Tujuan:</strong> Bertahan dari 12 AM hingga 6 AM.</p>
-      <p>• <strong>Pintu (L/R):</strong> Klik atau tekan Q/E untuk menutup. Menghabiskan daya.</p>
-      <p>• <strong>Kamera:</strong> Klik tombol CAMERA atau Spasi untuk memantau pergerakan bebek.</p>
-      <p>• <strong>Daya:</strong> Jika habis, pintu terbuka dan kamu tidak bisa melihat.</p>
+  <div class="camera-feed" id="camera-feed">
+    <div class="static-noise"></div>
+    <h2 id="cam-name" style="position: absolute; top: 20px; left: 20px; color: white; z-index: 2;">STAGE</h2>
+    <div id="cam-view-content" style="width: 100%; height: 100%; position: relative;">
+      <!-- Duck will appear here if in room -->
     </div>
-    <button class="btn" id="btn-start-game">Mengerti</button>
   </div>
+</div>
 
-  <div id="rotate-overlay">
-    <svg class="rotate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent);">
-      <path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/>
-    </svg>
-    <h2 style="color: var(--text);">Putar Perangkat</h2>
-    <p style="color: var(--text-dim); font-family: var(--font-mono); margin-top: 8px;">Game ini dirancang untuk pengalaman landscape.</p>
+<!-- JUMPSCARE -->
+<div class="jumpscare-overlay" id="jumpscare">
+  <div class="duck-entity jumpscare-duck" style="opacity: 1;">
+    <div class="duck-body" style="background: #ef4444;"><div class="duck-eye left"><div class="duck-pupil"></div></div><div class="duck-eye right"><div class="duck-pupil"></div></div><div class="duck-beak"></div></div>
   </div>
+</div>
+
+<!-- MENUS -->
+<div class="menu-overlay" id="main-menu">
+  <h1>SHIFT MALAM<br><span style="font-size: 0.5em; color: #facc15;">SERANGAN BEBEK</span></h1>
+  <button class="btn-menu" id="start-btn">SHIFT BARU</button>
+  <button class="btn-menu" id="settings-btn">PENGATURAN</button>
+</div>
+
+<div class="menu-overlay hidden" id="game-over-menu">
+  <h1 style="color: var(--ui-red); text-shadow: 0 0 10px var(--ui-red);">GAME OVER</h1>
+  <p style="color: #aaa; margin-bottom: 20px;">Kamu telah digagalkan oleh bebek.</p>
+  <button class="btn-menu" id="retry-btn">COBA LAGI</button>
+  <button class="btn-menu" id="menu-btn">MENU UTAMA</button>
+</div>
+
+<div class="menu-overlay hidden" id="win-menu">
+  <h1 style="color: var(--ui-green);">6:00 AM</h1>
+  <p style="color: #aaa; margin-bottom: 20px;">Selamat! Shift selesai.</p>
+  <button class="btn-menu" id="next-night-btn">SHIFT BERIKUTNYA</button>
 </div>
 
 <script>
 // ==========================================
-// KONSTANTA & STATE
+// GAME ENGINE & LOGIC
 // ==========================================
-const CONSTANTS = {
-  FOV: Math.PI / 3,
-  BLOCK_SIZE: 64,
-  MAP_SIZE: 16,
-  MAX_DEPTH: 16,
-  DT_CAP: 0.05,
-  MOVE_SPEED: 0, // Static player in office
-  ROT_SPEED: 1.5, // For looking around slightly if needed, but mostly static
-  POWER_DRAIN_BASE: 0.05,
-  POWER_DRAIN_DOOR: 0.15,
-  POWER_DRAIN_CAMERA: 0.1
-};
-
-// Map: 1=Wall, 0=Empty, 2=DoorLeft, 3=DoorRight, 9=Office
-const OFFICE_MAP = [
-  [1,1,1,1,1,1,1,1,1,1,1,1],
-  [1,0,0,0,0,0,0,0,0,0,0,1],
-  [1,0,1,1,0,0,0,0,1,1,0,1],
-  [1,0,1,0,0,0,0,0,0,1,0,1],
-  [1,0,0,0,1,1,1,1,0,0,0,1],
-  [1,0,0,0,1,9,9,1,0,0,0,1], // 9 is office floor
-  [1,0,0,0,1,9,9,1,0,0,0,1],
-  [1,0,0,0,1,1,1,1,0,0,0,1],
-  [1,0,1,0,0,0,0,0,0,1,0,1],
-  [1,0,1,1,0,0,0,0,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,1],
-  [1,1,1,1,1,1,1,1,1,1,1,1]
-];
-
-// Simple rooms for cameras
-const CAMERAS = [
-  { id: 0, name: "Stage", x: 2, y: 2 },
-  { id: 1, name: "Hallway Left", x: 2, y: 6 },
-  { id: 2, name: "Hallway Right", x: 9, y: 6 },
-  { id: 3, name: "Kitchen", x: 6, y: 2 },
-  { id: 4, name: "Office", x: 6, y: 6 }, // Player view
-  { id: 5, name: "Storage", x: 9, y: 2 }
-];
-
-let state = {
-  screen: 'menu',
-  player: { x: 6.5, y: 6.5, dir: Math.PI }, // Facing South (into the room)
-  doors: { left: false, right: false },
-  cameraActive: false,
-  currentCam: 4,
+const GAME = {
+  state: 'menu', // menu, playing, gameover, win
+  time: 0, // 0 to 6
   power: 100,
-  time: 0, // 0 to 6 (hours)
-  timeCounter: 0,
+  usage: 1,
+  doors: { left: false, right: false },
+  lights: { left: false, right: false },
+  camera: { active: false, current: '1A' },
+  night: 1,
+  lastTime: 0,
+  powerTimer: 0,
+  aiTimer: 0,
+  
+  // AI Locations: 1A (Stage), 1B (Dining), 1C (Cove), 2A (Hall West), 2B (Hall Corner), 3 (Kitchen), 4A (East Hall), 4B (East Corner), 5 (Restroom), OFFICE_L, OFFICE_R
   ducks: [
-    { id: 'yellow', pos: 0, active: true, moveTimer: 0, difficulty: 5 }, // Stage
-    { id: 'blue', pos: 3, active: true, moveTimer: 0, difficulty: 4 },   // Kitchen
-    { id: 'red', pos: 5, active: true, moveTimer: 0, difficulty: 6 }     // Storage
+    { name: 'Chica', location: '1A', path: ['1A', '1B', '4A', '4B', 'OFFICE_R'], difficulty: 0, moveChance: 0 },
+    { name: 'Bonnie', location: '1A', path: ['1A', '1B', '2A', '2B', 'OFFICE_L'], difficulty: 0, moveChance: 0 },
+    { name: 'Foxy', location: '1C', path: ['1C', '2A', '2B', 'OFFICE_L'], difficulty: 0, moveChance: 0 }
   ],
-  settings: { audio: true, haptic: true },
-  lastTime: 0
+  
+  settings: { audio: true, haptic: true }
 };
 
-let audioCtx = null;
-let canvas, ctx;
-let resizeTimeout;
+const CAMERAS = {
+  '1A': 'Show Stage', '1B': 'Dining Area', '1C': 'Pirate Cove',
+  '2A': 'West Hall', '2B': 'W. Hall Corner', '3': 'Kitchen',
+  '4A': 'East Hall', '4B': 'E. Hall Corner', '5': 'Restrooms'
+};
 
-// ==========================================
-// AUDIO SYSTEM
-// ==========================================
+// Audio Context
+let audioCtx;
 function initAudio() {
-  if (!audioCtx) {
-    try {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    } catch (e) {
-      console.error("AudioContext gagal", e);
-    }
-  }
-  if (audioCtx && audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
 }
 
 function playSound(type) {
-  if (!state.settings.audio || !audioCtx) return;
-  try {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    
-    const now = audioCtx.currentTime;
-    if (type === 'door') {
-      osc.type = 'square';
-      osc.frequency.setValueAtTime(100, now);
-      osc.frequency.exponentialRampToValueAtTime(50, now + 0.2);
-      gain.gain.setValueAtTime(0.1, now);
-      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
-      osc.start(now);
-      osc.stop(now + 0.2);
-    } else if (type === 'camera') {
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, now);
-      gain.gain.setValueAtTime(0.05, now);
-      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
-      osc.start(now);
-      osc.stop(now + 0.1);
-    } else if (type === 'win') {
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(400, now);
-      osc.frequency.linearRampToValueAtTime(600, now + 0.5);
-      gain.gain.setValueAtTime(0.2, now);
-      gain.gain.linearRampToValueAtTime(0, now + 1.0);
-      osc.start(now);
-      osc.stop(now + 1.0);
-    } else if (type === 'jumpscare') {
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(100, now);
-      osc.frequency.linearRampToValueAtTime(50, now + 0.5);
-      gain.gain.setValueAtTime(0.5, now);
-      gain.gain.linearRampToValueAtTime(0, now + 0.5);
-      osc.start(now);
-      osc.stop(now + 0.5);
-    }
-  } catch (e) {}
+  if (!GAME.settings.audio || !audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  const now = audioCtx.currentTime;
+  
+  if (type === 'blip') {
+    osc.type = 'sine'; osc.frequency.setValueAtTime(800, now);
+    gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+    osc.start(now); osc.stop(now + 0.1);
+  } else if (type === 'error') {
+    osc.type = 'sawtooth'; osc.frequency.setValueAtTime(100, now);
+    gain.gain.setValueAtTime(0.2, now); gain.gain.linearRampToValueAtTime(0, now + 0.3);
+    osc.start(now); osc.stop(now + 0.3);
+  } else if (type === 'step') {
+    osc.type = 'square'; osc.frequency.setValueAtTime(50, now);
+    gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+    osc.start(now); osc.stop(now + 0.1);
+  } else if (type === 'jumpscare') {
+    osc.type = 'sawtooth'; osc.frequency.setValueAtTime(100, now);
+    osc.frequency.linearRampToValueAtTime(1000, now + 0.1);
+    gain.gain.setValueAtTime(0.8, now); gain.gain.linearRampToValueAtTime(0, now + 1.5);
+    osc.start(now); osc.stop(now + 1.5);
+  }
 }
 
 function vibrate(pattern) {
-  if (state.settings.haptic && navigator.vibrate) {
-    try { navigator.vibrate(pattern); } catch(e) {}
-  }
+  if (GAME.settings.haptic && navigator.vibrate) navigator.vibrate(pattern);
 }
 
 // ==========================================
-// PERSISTENCE
+// CORE LOOP
 // ==========================================
-function saveState() {
-  try {
-    const data = { settings: state.settings };
-    localStorage.setItem('duck_shift_v1', JSON.stringify(data));
-  } catch (e) {}
-}
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem('duck_shift_v1');
-    if (raw) {
-      const data = JSON.parse(raw);
-      if (data && data.settings) state.settings = data.settings;
-    }
-  } catch (e) {}
-  updateSettingsUI();
-}
-
-function resetData() {
-  try {
-    localStorage.removeItem('duck_shift_v1');
-    state.settings = { audio: true, haptic: true };
-    updateSettingsUI();
-  } catch (e) {}
-}
-
-// ==========================================
-// GAME LOGIC & RAYCASTING
-// ==========================================
-function initGame() {
-  state.player.x = 6.5;
-  state.player.y = 6.5;
-  state.player.dir = Math.PI;
-  state.doors = { left: false, right: false };
-  state.cameraActive = false;
-  state.power = 100;
-  state.time = 0;
-  state.timeCounter = 0;
-  state.ducks = [
-    { id: 'yellow', pos: 0, active: true, moveTimer: 0, difficulty: 5 },
-    { id: 'blue', pos: 3, active: true, moveTimer: 0, difficulty: 4 },
-    { id: 'red', pos: 5, active: true, moveTimer: 0, difficulty: 6 }
-  ];
-  updateHud();
-}
-
-function updateHud() {
-  document.getElementById('hud-time').textContent = `${Math.floor(state.time) === 0 ? 12 : Math.floor(state.time)} AM`;
-  document.getElementById('hud-power').textContent = `${Math.floor(state.power)}%`;
-  
-  const leftBtn = document.getElementById('btn-door-left');
-  const rightBtn = document.getElementById('btn-door-right');
-  
-  leftBtn.classList.toggle('active', state.doors.left);
-  rightBtn.classList.toggle('active', state.doors.right);
-}
-
-function castRays(viewWidth, viewHeight, isCameraView = false) {
-  ctx.fillStyle = '#050505';
-  ctx.fillRect(0, 0, viewWidth, viewHeight);
-  
-  // Floor/Ceiling
-  const grad = ctx.createLinearGradient(0, 0, 0, viewHeight);
-  grad.addColorStop(0, '#0a0a0c');
-  grad.addColorStop(0.5, '#15171c');
-  grad.addColorStop(1, '#0a0a0c');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, viewWidth, viewHeight);
-
-  const numRays = viewWidth;
-  const deltaAngle = CONSTANTS.FOV / numRays;
-  let currentAngle = state.player.dir - CONSTANTS.FOV / 2;
-
-  // Check for ducks in office for jumpscare
-  let duckInOffice = false;
-  state.ducks.forEach(duck => {
-    if (duck.pos === 4 && duck.active) duckInOffice = true;
-  });
-
-  for (let i = 0; i < numRays; i++) {
-    let rayX = state.player.x;
-    let rayY = state.player.y;
-    let rayDirX = Math.cos(currentAngle);
-    let rayDirY = Math.sin(currentAngle);
-    
-    let mapX = Math.floor(rayX);
-    let mapY = Math.floor(rayY);
-    
-    let deltaDistX = Math.abs(1 / rayDirX);
-    let deltaDistY = Math.abs(1 / rayDirY);
-    
-    let stepX, stepY;
-    let sideDistX, sideDistY;
-    
-    if (rayDirX < 0) { stepX = -1; sideDistX = (rayX - mapX) * deltaDistX; } 
-    else { stepX = 1; sideDistX = (mapX + 1.0 - rayX) * deltaDistX; }
-    
-    if (rayDirY < 0) { stepY = -1; sideDistY = (rayY - mapY) * deltaDistY; } 
-    else { stepY = 1; sideDistY = (mapY + 1.0 - rayY) * deltaDistY; }
-    
-    let hit = 0;
-    let side = 0;
-    let depth = 0;
-    let tileType = 0;
-    
-    while (hit === 0 && depth < CONSTANTS.MAX_DEPTH) {
-      if (sideDistX < sideDistY) {
-        sideDistX += deltaDistX;
-        mapX += stepX;
-        side = 0;
-      } else {
-        sideDistY += deltaDistY;
-        mapY += stepY;
-        side = 1;
-      }
-      if (mapX < 0 || mapX >= OFFICE_MAP[0].length || mapY < 0 || mapY >= OFFICE_MAP.length) {
-        hit = 1; depth = CONSTANTS.MAX_DEPTH;
-      } else {
-        let tile = OFFICE_MAP[mapY][mapX];
-        // Door logic for raycasting
-        if (tile === 2 && state.doors.left) tile = 1;
-        if (tile === 3 && state.doors.right) tile = 1;
-        
-        if (tile > 0 && tile !== 9) {
-          hit = 1;
-          tileType = tile;
-        }
-      }
-      depth++;
-    }
-    
-    let perpWallDist;
-    if (side === 0) perpWallDist = (mapX - rayX + (1 - stepX) / 2) / rayDirX;
-    else perpWallDist = (mapY - rayY + (1 - stepY) / 2) / rayDirY;
-    
-    let lineHeight = Math.floor(viewHeight / perpWallDist);
-    let drawStart = Math.max(0, -lineHeight / 2 + viewHeight / 2);
-    let drawEnd = Math.min(viewHeight - 1, lineHeight / 2 + viewHeight / 2);
-    
-    let shade = 1.0 / (1.0 + perpWallDist * 0.15);
-    if (side === 1) shade *= 0.7;
-    
-    let color;
-    if (tileType === 1) {
-      color = `rgb(${Math.floor(40 * shade)}, ${Math.floor(45 * shade)}, ${Math.floor(55 * shade)})`;
-    } else if (tileType === 2 || tileType === 3) {
-      // Door
-      color = `rgb(${Math.floor(60 * shade)}, ${Math.floor(60 * shade)}, ${Math.floor(70 * shade)})`;
-    } else {
-      color = `rgb(${Math.floor(20 * shade)}, ${Math.floor(20 * shade)}, ${Math.floor(25 * shade)})`;
-    }
-    
-    ctx.fillStyle = color;
-    ctx.fillRect(i, drawStart, 1, drawEnd - drawStart);
-    
-    currentAngle += deltaAngle;
-  }
-  
-  // Render Ducks (Simple Sprite Logic)
-  if (!isCameraView) {
-    state.ducks.forEach(duck => {
-      if (!duck.active) return;
-      // If duck is in office (pos 4), it's a jumpscare
-      if (duck.pos === 4) {
-        // Draw big duck face
-        ctx.fillStyle = 'rgba(217, 119, 87, 0.8)';
-        ctx.beginPath();
-        ctx.arc(viewWidth/2, viewHeight/2, viewHeight/3, 0, Math.PI*2);
-        ctx.fill();
-        // Eyes
-        ctx.fillStyle = '#000';
-        ctx.beginPath();
-        ctx.arc(viewWidth/2 - 50, viewHeight/2 - 20, 20, 0, Math.PI*2);
-        ctx.arc(viewWidth/2 + 50, viewHeight/2 - 20, 20, 0, Math.PI*2);
-        ctx.fill();
-        // Beak
-        ctx.fillStyle = '#c25e00';
-        ctx.beginPath();
-        ctx.moveTo(viewWidth/2 - 30, viewHeight/2 + 20);
-        ctx.lineTo(viewWidth/2 + 30, viewHeight/2 + 20);
-        ctx.lineTo(viewWidth/2, viewHeight/2 + 80);
-        ctx.fill();
-      }
-    });
-  }
-}
-
-function gameLoop(timestamp) {
-  if (state.screen !== 'playing') return;
-  
-  let dt = (timestamp - state.lastTime) / 1000;
-  state.lastTime = timestamp;
-  if (dt > CONSTANTS.DT_CAP) dt = CONSTANTS.DT_CAP;
-  
-  // Time Progression
-  state.timeCounter += dt;
-  if (state.timeCounter > 30) { // 30 seconds per hour for demo
-    state.time++;
-    state.timeCounter = 0;
-    if (state.time >= 6) {
-      playSound('win');
-      showScreen('win');
-      return;
-    }
-  }
-  
-  // Power Drain
-  let drain = CONSTANTS.POWER_DRAIN_BASE;
-  if (state.doors.left) drain += CONSTANTS.POWER_DRAIN_DOOR;
-  if (state.doors.right) drain += CONSTANTS.POWER_DRAIN_DOOR;
-  if (state.cameraActive) drain += CONSTANTS.POWER_DRAIN_CAMERA;
-  
-  state.power -= drain * dt * 10; // Speed up for demo feel
-  if (state.power <= 0) {
-    state.power = 0;
-    state.doors.left = false;
-    state.doors.right = false;
-    state.cameraActive = false;
-    // Blackout logic could go here
-  }
-  updateHud();
-  
-  // Duck AI
-  state.ducks.forEach(duck => {
-    duck.moveTimer += dt;
-    if (duck.moveTimer > duck.difficulty) {
-      duck.moveTimer = 0;
-      if (Math.random() > 0.5) {
-        // Move towards office (simplified pathing)
-        if (duck.pos === 0) duck.pos = 1; // Stage to Hall Left
-        else if (duck.pos === 3) duck.pos = 2; // Kitchen to Hall Right
-        else if (duck.pos === 5) duck.pos = 2; // Storage to Hall Right
-        else if (duck.pos === 1) {
-          if (state.doors.left) duck.pos = 1; // Blocked
-          else duck.pos = 4; // Enter Office
-        }
-        else if (duck.pos === 2) {
-          if (state.doors.right) duck.pos = 2; // Blocked
-          else duck.pos = 4; // Enter Office
-        }
-      }
-    }
+function startGame() {
+  initAudio();
+  GAME.state = 'playing';
+  GAME.time = 0;
+  GAME.power = 100;
+  GAME.doors = { left: false, right: false };
+  GAME.lights = { left: false, right: false };
+  GAME.camera.active = false;
+  GAME.ducks.forEach(d => {
+    d.location = d.path[0];
+    d.difficulty = 2 + (GAME.night * 2); // Scaling difficulty
   });
   
-  // Check Jumpscare
-  state.ducks.forEach(duck => {
-    if (duck.pos === 4 && duck.active) {
-      playSound('jumpscare');
-      vibrate([200, 100, 200]);
-      showScreen('gameover');
-    }
-  });
+  updateUI();
+  document.getElementById('main-menu').classList.add('hidden');
+  document.getElementById('game-over-menu').classList.add('hidden');
+  document.getElementById('win-menu').classList.add('hidden');
+  document.getElementById('camera-feed').classList.remove('active');
+  document.getElementById('cam-map').classList.remove('active');
   
-  // Render
-  if (state.cameraActive) {
-    // In camera mode, we still render the office but with a filter or just static
-    // For simplicity, we render the office view but dimmed
-    castRays(canvas.width, canvas.height, false);
-    ctx.fillStyle = 'rgba(0,0,0,0.7)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Show camera feed simulation
-    ctx.fillStyle = '#0f0';
-    ctx.font = '20px Courier New';
-    ctx.fillText(`CAM ${state.currentCam}: ${CAMERAS[state.currentCam].name}`, 20, 40);
-    
-    // Show duck if in current cam
-    const currentCamObj = CAMERAS[state.currentCam];
-    state.ducks.forEach(duck => {
-      if (duck.pos === currentCamObj.id) {
-        ctx.fillStyle = 'rgba(217, 119, 87, 0.5)';
-        ctx.beginPath();
-        ctx.arc(canvas.width/2, canvas.height/2, 50, 0, Math.PI*2);
-        ctx.fill();
-        ctx.fillStyle = '#fff';
-        ctx.fillText("GERAKAN TERDETEKSI", canvas.width/2 - 80, canvas.height/2 + 80);
-      }
-    });
-    
-  } else {
-    castRays(canvas.width, canvas.height, false);
-  }
-  
+  GAME.lastTime = performance.now();
   requestAnimationFrame(gameLoop);
 }
 
-// ==========================================
-// INPUT HANDLING
-// ==========================================
-window.addEventListener('keydown', (e) => {
-  if (state.screen !== 'playing') return;
-  if (e.key.toLowerCase() === 'q') toggleDoor('left');
-  if (e.key.toLowerCase() === 'e') toggleDoor('right');
-  if (e.key === ' ') toggleCamera();
-  if (e.key === 'Escape') togglePause();
-});
+function gameLoop(timestamp) {
+  if (GAME.state !== 'playing') return;
+  const dt = (timestamp - GAME.lastTime) / 1000;
+  GAME.lastTime = timestamp;
+  
+  // Time Progression (1 hour = 60 seconds real time for demo pacing)
+  GAME.time += dt / 60;
+  if (GAME.time >= 6) {
+    GAME.state = 'win';
+    playSound('blip');
+    document.getElementById('win-menu').classList.remove('hidden');
+    return;
+  }
+  
+  // Power Drain
+  let drain = 0.1; // Base drain
+  if (GAME.doors.left) drain += 0.4;
+  if (GAME.doors.right) drain += 0.4;
+  if (GAME.lights.left) drain += 0.4;
+  if (GAME.lights.right) drain += 0.4;
+  if (GAME.camera.active) drain += 0.4;
+  
+  GAME.power -= drain * dt;
+  if (GAME.power <= 0) {
+    GAME.power = 0;
+    powerOutage();
+  }
+  
+  // AI Movement
+  GAME.aiTimer += dt;
+  if (GAME.aiTimer > 5) { // Check every 5 seconds
+    GAME.aiTimer = 0;
+    moveAI();
+  }
+  
+  updateUI();
+  checkJumpscare();
+  requestAnimationFrame(gameLoop);
+}
 
-document.getElementById('btn-door-left').addEventListener('click', () => toggleDoor('left'));
-document.getElementById('btn-door-right').addEventListener('click', () => toggleDoor('right'));
-document.getElementById('btn-camera').addEventListener('click', toggleCamera);
-document.getElementById('btn-close-camera').addEventListener('click', toggleCamera);
+function moveAI() {
+  GAME.ducks.forEach(duck => {
+    if (Math.random() * 20 < duck.difficulty) {
+      const currentIndex = duck.path.indexOf(duck.location);
+      if (currentIndex < duck.path.length - 1) {
+        // If at office door, check if door is closed
+        const nextLoc = duck.path[currentIndex + 1];
+        if (nextLoc === 'OFFICE_L' && GAME.doors.left) {
+          playSound('error'); // Bump sound
+          duck.location = duck.path[0]; // Reset to stage
+        } else if (nextLoc === 'OFFICE_R' && GAME.doors.right) {
+          playSound('error');
+          duck.location = duck.path[0];
+        } else {
+          duck.location = nextLoc;
+          if (duck.location !== 'OFFICE_L' && duck.location !== 'OFFICE_R') {
+             // Only play step if not at door waiting
+             // playSound('step'); 
+          }
+        }
+      }
+    }
+  });
+  updateCameraView();
+}
+
+function checkJumpscare() {
+  GAME.ducks.forEach(duck => {
+    if (duck.location === 'OFFICE_L' && !GAME.doors.left) triggerJumpscare();
+    if (duck.location === 'OFFICE_R' && !GAME.doors.right) triggerJumpscare();
+  });
+}
+
+function triggerJumpscare() {
+  GAME.state = 'gameover';
+  playSound('jumpscare');
+  vibrate([500, 100, 500]);
+  const js = document.getElementById('jumpscare');
+  js.style.display = 'flex';
+  setTimeout(() => {
+    js.style.display = 'none';
+    document.getElementById('game-over-menu').classList.remove('hidden');
+  }, 2000);
+}
+
+function powerOutage() {
+  GAME.doors.left = false; GAME.doors.right = false;
+  GAME.lights.left = false; GAME.lights.right = false;
+  GAME.camera.active = false;
+  updateUI();
+  // Freddy comes when power is out (simplified: instant game over after random time)
+  setTimeout(() => {
+    if (GAME.state === 'playing') triggerJumpscare();
+  }, Math.random() * 10000 + 5000);
+}
+
+// ==========================================
+// UI & INTERACTION
+// ==========================================
+function updateUI() {
+  // Time
+  const hour = Math.floor(GAME.time) === 0 ? 12 : Math.floor(GAME.time);
+  document.getElementById('time-display').textContent = `${hour} AM`;
+  
+  // Power
+  document.getElementById('power-display').textContent = `${Math.floor(GAME.power)}%`;
+  
+  // Usage Bars
+  let usageLevel = 1;
+  if (GAME.doors.left) usageLevel++;
+  if (GAME.doors.right) usageLevel++;
+  if (GAME.lights.left) usageLevel++;
+  if (GAME.lights.right) usageLevel++;
+  if (GAME.camera.active) usageLevel++;
+  
+  for (let i = 1; i <= 5; i++) {
+    const bar = document.getElementById(`bar-${i}`);
+    if (bar) bar.classList.toggle('active', i <= usageLevel);
+  }
+  
+  // Doors & Lights Visuals
+  document.getElementById('door-left').classList.toggle('closed', GAME.doors.left);
+  document.getElementById('door-right').classList.toggle('closed', GAME.doors.right);
+  
+  document.getElementById('light-left-overlay').classList.toggle('light-active', GAME.lights.left);
+  document.getElementById('light-right-overlay').classList.toggle('light-active', GAME.lights.right);
+  
+  // Show Ducks at Door if Light is On
+  document.getElementById('duck-left').style.opacity = (GAME.lights.left && GAME.ducks.some(d => d.location === 'OFFICE_L')) ? 1 : 0;
+  document.getElementById('duck-right').style.opacity = (GAME.lights.right && GAME.ducks.some(d => d.location === 'OFFICE_R')) ? 1 : 0;
+  
+  // Buttons
+  document.getElementById('btn-door-left').classList.toggle('active', GAME.doors.left);
+  document.getElementById('btn-door-right').classList.toggle('active', GAME.doors.right);
+  document.getElementById('btn-light-left').classList.toggle('active', GAME.lights.left);
+  document.getElementById('btn-light-right').classList.toggle('active', GAME.lights.right);
+}
 
 function toggleDoor(side) {
-  if (state.power <= 0) return;
-  state.doors[side] = !state.doors[side];
-  playSound('door');
+  if (GAME.power <= 0) return;
+  GAME.doors[side] = !GAME.doors[side];
+  playSound('blip');
   vibrate(20);
-  updateHud();
+  updateUI();
+}
+
+function toggleLight(side) {
+  if (GAME.power <= 0) return;
+  GAME.lights[side] = !GAME.lights[side];
+  // Turn off other light
+  if (side === 'left') GAME.lights.right = false;
+  else GAME.lights.left = false;
+  playSound('blip');
+  updateUI();
 }
 
 function toggleCamera() {
-  if (state.power <= 0) return;
-  state.cameraActive = !state.cameraActive;
-  document.getElementById('camera-overlay').classList.toggle('active', state.cameraActive);
-  playSound('camera');
+  if (GAME.power <= 0) return;
+  GAME.camera.active = !GAME.camera.active;
+  document.getElementById('camera-feed').classList.toggle('active', GAME.camera.active);
+  document.getElementById('cam-map').classList.toggle('active', GAME.camera.active);
+  playSound('blip');
+  updateCameraView();
 }
 
-// Camera buttons
+function updateCameraView() {
+  const camContent = document.getElementById('cam-view-content');
+  camContent.innerHTML = '';
+  document.getElementById('cam-name').textContent = CAMERAS[GAME.camera.current] || 'Unknown';
+  
+  // Show duck if in this room
+  const duckHere = GAME.ducks.find(d => d.location === GAME.camera.current);
+  if (duckHere) {
+    const duckDiv = document.createElement('div');
+    duckDiv.className = 'duck-entity';
+    duckDiv.style.opacity = 1;
+    duckDiv.style.position = 'absolute';
+    duckDiv.style.top = '50%'; duckDiv.style.left = '50%';
+    duckDiv.style.transform = 'translate(-50%, -50%) scale(0.5)';
+    duckDiv.innerHTML = `<div class="duck-body"><div class="duck-eye left"><div class="duck-pupil"></div></div><div class="duck-eye right"><div class="duck-pupil"></div></div><div class="duck-beak"></div></div>`;
+    camContent.appendChild(duckDiv);
+  }
+}
+
+// Event Listeners
+document.getElementById('btn-door-left').addEventListener('click', () => toggleDoor('left'));
+document.getElementById('btn-door-right').addEventListener('click', () => toggleDoor('right'));
+document.getElementById('btn-light-left').addEventListener('click', () => toggleLight('left'));
+document.getElementById('btn-light-right').addEventListener('click', () => toggleLight('right'));
+document.getElementById('cam-toggle').addEventListener('click', toggleCamera);
+document.getElementById('start-btn').addEventListener('click', startGame);
+document.getElementById('retry-btn').addEventListener('click', startGame);
+document.getElementById('menu-btn').addEventListener('click', () => {
+  document.getElementById('game-over-menu').classList.add('hidden');
+  document.getElementById('main-menu').classList.remove('hidden');
+});
+document.getElementById('next-night-btn').addEventListener('click', () => {
+  GAME.night++;
+  startGame();
+});
+
 document.querySelectorAll('.cam-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     document.querySelectorAll('.cam-btn').forEach(b => b.classList.remove('active'));
     e.target.classList.add('active');
-    state.currentCam = parseInt(e.target.dataset.cam);
-    playSound('camera');
+    GAME.camera.current = e.target.dataset.cam;
+    playSound('blip');
+    updateCameraView();
   });
 });
 
-// Prevent context menu
-canvas = document.getElementById('game-canvas');
-canvas.addEventListener('contextmenu', e => e.preventDefault());
-
-// ==========================================
-// UI & STATE MANAGEMENT
-// ==========================================
-function showScreen(screenName) {
-  state.screen = screenName;
-  document.querySelectorAll('.overlay').forEach(el => el.classList.add('hidden'));
-  document.getElementById('hud').classList.add('hidden');
-  document.getElementById('controls-panel').classList.add('hidden');
-  document.getElementById('camera-overlay').classList.remove('active');
-  
-  if (screenName === 'menu') {
-    document.getElementById('main-menu').classList.remove('hidden');
-  } else if (screenName === 'settings') {
-    document.getElementById('settings-menu').classList.remove('hidden');
-  } else if (screenName === 'playing') {
-    document.getElementById('hud').classList.remove('hidden');
-    document.getElementById('controls-panel').classList.remove('hidden');
-    state.lastTime = performance.now();
-    requestAnimationFrame(gameLoop);
-  } else if (screenName === 'paused') {
-    document.getElementById('pause-menu').classList.remove('hidden');
-    document.getElementById('hud').classList.remove('hidden');
-    document.getElementById('controls-panel').classList.remove('hidden');
-  } else if (screenName === 'gameover') {
-    document.getElementById('game-over').classList.remove('hidden');
-  } else if (screenName === 'win') {
-    document.getElementById('win-screen').classList.remove('hidden');
-  } else if (screenName === 'onboarding') {
-    document.getElementById('onboarding').classList.remove('hidden');
-  }
-}
-
-function togglePause() {
-  if (state.screen === 'playing') showScreen('paused');
-  else if (state.screen === 'paused') showScreen('playing');
-}
-
-function updateSettingsUI() {
-  const audioToggle = document.getElementById('toggle-audio');
-  const hapticToggle = document.getElementById('toggle-haptic');
-  audioToggle.classList.toggle('active', state.settings.audio);
-  hapticToggle.classList.toggle('active', state.settings.haptic);
-}
-
-// ==========================================
-// EVENT LISTENERS UI
-// ==========================================
-document.getElementById('btn-start').addEventListener('click', () => {
-  initAudio();
-  if (!localStorage.getItem('duck_onboarded')) {
-    showScreen('onboarding');
-  } else {
-    initGame();
-    showScreen('playing');
-  }
-});
-document.getElementById('btn-start-game').addEventListener('click', () => {
-  localStorage.setItem('duck_onboarded', 'true');
-  initGame();
-  showScreen('playing');
-});
-document.getElementById('btn-settings').addEventListener('click', () => showScreen('settings'));
-document.getElementById('btn-back-settings').addEventListener('click', () => showScreen('menu'));
-document.getElementById('btn-reset-data').addEventListener('click', () => {
-  if (confirm("Hapus semua data?")) resetData();
-});
-document.getElementById('btn-resume').addEventListener('click', () => showScreen('playing'));
-document.getElementById('btn-restart').addEventListener('click', () => {
-  initGame();
-  showScreen('playing');
-});
-document.getElementById('btn-quit').addEventListener('click', () => showScreen('menu'));
-document.getElementById('btn-retry').addEventListener('click', () => {
-  initGame();
-  showScreen('playing');
-});
-document.getElementById('btn-quit-over').addEventListener('click', () => showScreen('menu'));
-document.getElementById('btn-quit-win').addEventListener('click', () => showScreen('menu'));
-
-document.getElementById('toggle-audio').addEventListener('click', function() {
-  state.settings.audio = !state.settings.audio;
-  updateSettingsUI();
-  saveState();
-});
-document.getElementById('toggle-haptic').addEventListener('click', function() {
-  state.settings.haptic = !state.settings.haptic;
-  updateSettingsUI();
-  saveState();
+// Keyboard Shortcuts
+window.addEventListener('keydown', (e) => {
+  if (GAME.state !== 'playing') return;
+  if (e.key === 'q') toggleDoor('left');
+  if (e.key === 'e') toggleDoor('right');
+  if (e.key === 'a') toggleLight('left');
+  if (e.key === 'd') toggleLight('right');
+  if (e.key === ' ') toggleCamera();
 });
 
-// ==========================================
-// ANDROID & RESPONSIVE HANDLING
-// ==========================================
-function handleResize() {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    ctx = canvas.getContext('2d');
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (state.screen === 'playing') castRays(canvas.width, canvas.height);
-  }, 150);
-}
-
-window.addEventListener('resize', handleResize);
-if (window.visualViewport) {
-  window.visualViewport.addEventListener('resize', handleResize);
-}
-
+// Android Back Button
 history.pushState(null, null, location.href);
-window.addEventListener('popstate', function () {
-  if (state.screen === 'playing') {
-    togglePause();
+window.addEventListener('popstate', () => {
+  if (GAME.state === 'playing') {
+    toggleCamera(); // Use camera button as pause/close overlay
     history.pushState(null, null, location.href);
-  } else if (state.screen === 'paused' || state.screen === 'settings') {
-    showScreen('menu');
-    history.pushState(null, null, location.href);
-  } else {
-    history.go(-1);
   }
-});
-
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden && state.screen === 'playing') togglePause();
-});
-
-window.addEventListener('blur', () => {
-  if (state.screen === 'playing') togglePause();
-});
-
-window.addEventListener('beforeunload', (e) => {
-  if (state.screen === 'playing') {
-    e.preventDefault();
-    e.returnValue = '';
-  }
-});
-
-// Wake Lock
-let wakeLock = null;
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      wakeLock = await navigator.wakeLock.request('screen');
-    }
-  } catch (err) {}
-}
-document.addEventListener('click', () => {
-  if (state.screen === 'playing' && !wakeLock) requestWakeLock();
-}, { once: true });
-
-// ==========================================
-// INITIALIZATION
-// ==========================================
-window.addEventListener('DOMContentLoaded', () => {
-  loadState();
-  handleResize();
-  showScreen('menu');
 });
 
 </script>
